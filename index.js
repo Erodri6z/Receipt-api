@@ -75,11 +75,7 @@ app.post('/reciepts/process', (req, res) => {
     total: req.body.total,
     items: req.body.items
     }
-  // const { retailer } = req.body.retailer
-  // const { purchaseDate } = req.body.purchaseDate
-  // const { purchaseTime } = req.body.purchaseTime
-  // const { total } = req.body.total
-  // const  items  = req.body.items
+
   reciepts.push(reciept)
   res.send(reciept)
 });
@@ -147,7 +143,6 @@ app.get('/reciepts/:id/points', (req, res) => {
       let charCount = item.shortDescription.length
       if (charCount % 3 === 0){
         const point = Math.ceil(item.price * 0.2)
-        console.log(point)
         points = points + point
       } 
     })
