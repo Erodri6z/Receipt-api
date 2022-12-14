@@ -11,7 +11,7 @@ app.listen(PORT,
 
 const reciepts = [
   { 
-    id : 398916030109,
+    id: 398916030109,
     retailer: "Walgreens",
     purchaseDate: "2022-01-02",
     purchaseTime: "08:13",
@@ -24,7 +24,7 @@ const reciepts = [
     ]
   },
   {
-    id : 263620709779,
+    id: 263620709779,
     retailer: "Target",
     purchaseDate: "2022-01-02",
     purchaseTime: "13:13",
@@ -56,11 +56,10 @@ app.post('/reciepts/process', (req, res) => {
   // const { purchaseTime } = req.body.purchaseTime
   // const { total } = req.body.total
   // const  items  = req.body.items
-
+  reciepts.push(reciept)
   res.send(reciept)
 });
 
-app.get(`/receipts/:id`, (req, res) => {
-  const reciept = reciept.find(r => r.id === parseInt(req.params.id))
-  res.status(200).send(reciept)
+app.get(`/reciepts/:id`, (req, res) => {
+  res.send(reciepts.find(r => r.id === parseInt(req.params.id)))
 })
